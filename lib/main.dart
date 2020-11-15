@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'details_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,6 +36,14 @@ class _HomePageState extends State<HomePage> {
         itemBuilder: (ctx, index) => Card(
           child: ListTile(
             title: Text(itemList[index]),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (ctx) => DetailsScreen(),
+                    settings: RouteSettings(arguments: itemList[index])),
+              );
+            },
           ),
         ),
       ),
