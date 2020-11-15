@@ -73,7 +73,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     }
   }
 
-  Future labesRead() async {
+  Future labelsRead() async {
     resultText = '';
     FirebaseVisionImage myImage = FirebaseVisionImage.fromFile(_image);
     ImageLabeler labeler = FirebaseVision.instance.imageLabeler();
@@ -105,6 +105,23 @@ class _DetailsScreenState extends State<DetailsScreen> {
 
     for (Face face in faces) {
       rect.add(face.boundingBox);
+    }
+  }
+
+  void detectMLFeature(String selectedFeature) {
+    switch (selectedFeature) {
+      case 'Text Scanner':
+        readTextFromImage();
+        break;
+      case 'Barcode Scanner':
+        decodeBarCode();
+        break;
+      case 'Label Scanner':
+        labelsRead();
+        break;
+      case 'Face Detection':
+        detectFace();
+        break;
     }
   }
 
@@ -170,7 +187,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: detectFace,
+        onPressed: () {
+          detectMLFeature(title);
+        },
         child: Icon(
           Icons.check,
         ),
