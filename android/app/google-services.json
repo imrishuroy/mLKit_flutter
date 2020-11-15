@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "139641483702",
+    "firebase_url": "https://mlkit-flutter-b5cb2.firebaseio.com",
+    "project_id": "mlkit-flutter-b5cb2",
+    "storage_bucket": "mlkit-flutter-b5cb2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139641483702:android:bd9724983adc5f984f9117",
+        "android_client_info": {
+          "package_name": "com.sixteenbrains.mlKit_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139641483702-9pvic542n2q2f7pc7krg447sjhbno64p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuQrgA6n1SBnuWWB8cf0-AFRXQb4wAzCc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139641483702-9pvic542n2q2f7pc7krg447sjhbno64p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "139641483702-utdgufq4uoiufssfbt5fh0e7gpp52ij3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sixteenbrains.mlKitFlutter"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
