@@ -62,6 +62,27 @@ class _DetailsScreenState extends State<DetailsScreen> {
     }
   }
 
+  Future labesRead() async {
+    resultText = '';
+    FirebaseVisionImage myImage = FirebaseVisionImage.fromFile(_image);
+    ImageLabeler labeler = FirebaseVision.instance.imageLabeler();
+    List labels = await labeler.processImage(myImage);
+
+    for (ImageLabel label in labels) {
+      final String text = label.text;
+      final double confidence = label.confidence;
+      //print('Text = $text and Confidence = ${(confidence * 100).toInt()}%');
+      setState(
+        () {
+          resultText = resultText +
+              ' ' +
+              text +
+              '  ' 'Confidence - ' '${(confidence * 100).toInt()}%\n';
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     title = ModalRoute.of(context).settings.arguments.toString();
@@ -103,13 +124,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
               style: TextStyle(
                 fontSize: 18.0,
               ),
-              textAlign: TextAlign.center,
+              textAlign: TextAlign.start,
             ),
           ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: decodeBarCode,
+        onPressed: labesRead,
         child: Icon(
           Icons.check,
         ),
