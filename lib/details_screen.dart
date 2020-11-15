@@ -48,6 +48,20 @@ class _DetailsScreenState extends State<DetailsScreen> {
     }
   }
 
+  decodeBarCode() async {
+    resultText = '';
+    FirebaseVisionImage myImage = FirebaseVisionImage.fromFile(_image);
+    BarcodeDetector barcodeDetector = FirebaseVision.instance.barcodeDetector();
+    List barCodes = await barcodeDetector.detectInImage(myImage);
+
+    for (Barcode redableCode in barCodes) {
+      //print(redableCode.displayValue);
+      setState(() {
+        resultText = redableCode.displayValue;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     title = ModalRoute.of(context).settings.arguments.toString();
@@ -95,7 +109,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: readTextFromImage,
+        onPressed: decodeBarCode,
         child: Icon(
           Icons.check,
         ),

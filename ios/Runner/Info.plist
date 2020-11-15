@@ -21,9 +21,9 @@
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>This app need access to photos</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
+	<string>This app need access to photos</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
